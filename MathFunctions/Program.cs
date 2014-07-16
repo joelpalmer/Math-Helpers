@@ -10,11 +10,7 @@ namespace MathFunctions
    {
       static void Main(string[] args)
       {
-         //int i = 6;
-         //Console.WriteLine(i.IsDivisibleBy(3));
-         //Console.ReadLine();
-
-         ShowDivisibles(1, 100, "divisible by 3", "divisible by 5");
+        ShowDivisibles(1, 100, "divisible by 3", "divisible by 5");
          Console.ReadLine();
       }
 

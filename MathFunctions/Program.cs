@@ -10,33 +10,52 @@ namespace MathFunctions
    {
       static void Main(string[] args)
       {
-        ShowDivisibles(1, 100, "divisible by 3", "divisible by 5");
+        ShowDivisibles(101, 100, "divisible by 3", "divisible by 5");
          Console.ReadLine();
       }
 
       public static void ShowDivisibles(int start, int end, string threeText, string fiveText)
       {
-         for (var i = start; end >= i; i++)
+
+         try
          {
-
-            if (i.IsDivisibleBy(3) && i.IsDivisibleBy(5))
+            if (end < start)
             {
-               Console.WriteLine(threeText + " and " + fiveText);
+               throw new ArgumentException( "ShowDivisibles: The starting number must be lower than the ending number");
+               //return false;
             }
 
-            else if (i.IsDivisibleBy(3))
+            for (var i = start; end >= i; i++)
             {
-               Console.WriteLine(threeText);
-            }
-            else if (i.IsDivisibleBy(5))
-            {
-               Console.WriteLine(fiveText);
-            }
-            else
-            {
-               Console.WriteLine(i);
+
+               if (i.IsDivisibleBy(3) && i.IsDivisibleBy(5))
+               {
+                  Console.WriteLine(threeText + " and " + fiveText);
+               }
+
+               else if (i.IsDivisibleBy(3))
+               {
+                  Console.WriteLine(threeText);
+               }
+               else if (i.IsDivisibleBy(5))
+               {
+                  Console.WriteLine(fiveText);
+               }
+               else
+               {
+                  Console.WriteLine(i);
+               }
             }
          }
+         catch (Exception err)
+         {
+            Console.WriteLine("{0} Exception caught.", err);
+
+         }
+         
+         
+         
+   
       }
    }
 }
